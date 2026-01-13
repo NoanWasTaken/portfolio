@@ -11,7 +11,7 @@ A simple portfolio showcasing my web development skills with:
 - Scroll navigation between sections
 
 ## Tech Stack
-
+- ViteJS
 - React 19 + TypeScript
 - Tailwind CSS for styling
 - Framer Motion for animations
@@ -32,10 +32,10 @@ A simple portfolio showcasing my web development skills with:
 git clone https://github.com/NoanWasTaken/portfolio.git
 cd portfolio
 npm install
-npm start
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and you're good to go!
+Open [http://localhost:5173](http://localhost:5173) and you're good to go!
 
 ## Build for Production
 
