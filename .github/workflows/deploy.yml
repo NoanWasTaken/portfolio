@@ -1,36 +1,32 @@
-name: Deploy portfolio
+name: Build and Push Portfolio
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install cloudflared
-        run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
-          sudo dpkg -i cloudflared.deb
-
-      - name: Start cloudflared access tunnel
-        run: |
-          nohup cloudflared access tcp \
-            --hostname ${{ secrets.CF_TUNNEL_HOSTNAME }} \
-            --destination ssh://localhost:22 \
-            --url ${{ secrets.CF_TUNNEL_URL }} > /tmp/cloudflared.log 2>&1 &
-        shell: bash
-
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.8.0
+      - name: Login to GHCR
+        uses: docker/login-action@v3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deploy on server
-        run: |
-          ssh -o StrictHostKeyChecking=no deploy@127.0.0.1 -p 2222 \
-            "cd ~/docker/portfolio && docker-compose pull && docker-compose up -d --build"
+      - name: Build & Push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/noandelatouche/portfolio:latest
