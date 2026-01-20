@@ -1,9 +1,8 @@
-name: Deploy
+name: Deploy portfolio
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -13,15 +12,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install cloudflared
+        run: |
+          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
+          sudo dpkg -i cloudflared.deb
+
+      - name: Start cloudflared access tunnel
+        run: |
+          nohup cloudflared access tcp \
+            --hostname ${{ secrets.CF_TUNNEL_HOSTNAME }} \
+            --destination ssh://localhost:22 \
+            --url ${{ secrets.CF_TUNNEL_URL }} > /tmp/cloudflared.log 2>&1 &
+        shell: bash
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Deploy via SSH
+
+      - name: Deploy on server
         run: |
-          ssh -o StrictHostKeyChecking=no \
-              -o ConnectTimeout=10 \
-              -o ServerAliveInterval=30 \
-              -o ServerAliveCountMax=4 \
-              ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-              "cd ~/docker/portfolio && docker-compose pull && docker-compose up -d --build"
+          ssh -o StrictHostKeyChecking=no deploy@127.0.0.1 -p 2222 \
+            "cd ~/docker/portfolio && docker-compose pull && docker-compose up -d --build"
