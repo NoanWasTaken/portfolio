@@ -29,4 +29,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/noandelatouche/portfolio:latest
+          tags: ghcr.io/noanwastaken/portfolio:latest
