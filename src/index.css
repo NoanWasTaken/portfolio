@@ -574,6 +574,12 @@ section {
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  .nav-indicator {
+    right: 0.5rem;
+  }
+}
+
 .nav-dot {
   position: relative;
   width: 12px;
