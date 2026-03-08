@@ -22,6 +22,14 @@ export default function Projects() {
         "https://addons.mozilla.org/en-US/firefox/addon/simple-tabs-counter/",
       githubUrl: "https://github.com/NoanWasTaken/tabs-counter",
     },
+    {
+      name: "GearForge",
+      description:
+        "Online shop with ai features and complete admin panel, stocks management and easter eggs",
+      imageUrl: "/gearfoge.png",
+      projectUrl: "https://gearfoge.noandelatouche.dev",
+      githubUrl: "https://github.com/NoanWasTaken/projet_m1s1",
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(0);

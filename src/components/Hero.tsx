@@ -42,24 +42,22 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex justify-center lg:justify-start gap-3 mb-12"
           >
-            <button className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300">
-              <a
-                href="https://www.linkedin.com/in/noan-delatouche/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={18} />
-              </a>
-            </button>
-            <button className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300">
-              <a
-                href="https://github.com/NoanWasTaken"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={18} />
-              </a>
-            </button>
+            <a
+              className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300"
+              href="https://www.linkedin.com/in/noan-delatouche/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300"
+              href="https://github.com/NoanWasTaken"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={18} />
+            </a>
           </motion.div>
 
           <motion.p
@@ -120,7 +118,7 @@ export default function Hero() {
               <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center overflow-hidden">
                 <div className="w-60 h-60 lg:w-64 lg:h-64 rounded-full flex items-center justify-center relative overflow-hidden">
                   <img
-                    src="/kobayashi.jpg"
+                    src="/pfp.webp"
                     alt="Anime character profile"
                     className="w-full h-full object-cover rounded-full hero-image"
                   />
