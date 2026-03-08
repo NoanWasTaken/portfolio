@@ -27,7 +27,7 @@ export default function Projects() {
       description:
         "Online shop with ai features and complete admin panel, stocks management and easter eggs",
       imageUrl: "/gearfoge.png",
-      projectUrl: "https://gearfoge.noandelatouche.dev",
+      projectUrl: "https://gearforge.noandelatouche.dev",
       githubUrl: "https://github.com/NoanWasTaken/projet_m1s1",
     },
   ];
