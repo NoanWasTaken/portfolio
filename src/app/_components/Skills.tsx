@@ -1,5 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { skillsRow1, skillsRow2, skillsRow3 } from "@/data/skills";
 
 export default function Skills() {
   return (
@@ -38,7 +41,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center items-center gap-6 lg:gap-12"
           >
-            {['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Node'].map((skill, index) => (
+            {skillsRow1.map((skill, index) => (
               <motion.div
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -70,7 +73,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center items-center gap-6 lg:gap-12"
           >
-            {['React', 'Angular', 'Vue', 'Tailwind CSS', 'PHP', 'Laravel'].map((skill, index) => (
+            {skillsRow2.map((skill, index) => (
               <motion.div
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -102,7 +105,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center items-center gap-6 lg:gap-12"
           >
-            {['Java', 'Python', 'Git and GitHub', 'Bootstrap', 'Symfony'].map((skill, index) => (
+            {skillsRow3.map((skill, index) => (
               <motion.div
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}

@@ -9,9 +9,13 @@ COPY . .
 RUN npm run build
 
 # Runtime
-FROM nginx:stable-alpine
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM node:20-alpine AS runtime
+WORKDIR /app
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+COPY --from=build /app/public ./public
+
+EXPOSE 3000
+ENV HOSTNAME="0.0.0.0"
+CMD ["node", "server.js"]

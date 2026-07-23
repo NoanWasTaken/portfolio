@@ -1,26 +1,14 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { contacts, type ContactIcon } from "@/data/contact";
 
-const contacts = [
-  {
-    icon: <Mail size={22} />,
-    label: "Email",
-    value: "delatouchenoan@gmail.com",
-    href: "mailto:delatouchenoan@gmail.com",
-  },
-  {
-    icon: <Linkedin size={22} />,
-    label: "LinkedIn",
-    value: "noan-delatouche",
-    href: "https://www.linkedin.com/in/noan-delatouche/",
-  },
-  {
-    icon: <Github size={22} />,
-    label: "GitHub",
-    value: "NoanWasTaken",
-    href: "https://github.com/NoanWasTaken",
-  },
-];
+const iconMap: Record<ContactIcon, React.ReactNode> = {
+  mail: <Mail size={22} />,
+  linkedin: <Linkedin size={22} />,
+  github: <Github size={22} />,
+};
 
 export default function Contact() {
   return (
@@ -107,7 +95,7 @@ export default function Contact() {
           className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-12"
         >
           Que ce soit pour un projet, une opportunité ou juste pour échanger —
-          n'hésitez pas à me contacter.
+          n&apos;hésitez pas à me contacter.
         </motion.p>
 
         <div className="flex flex-col gap-4">
@@ -124,7 +112,7 @@ export default function Contact() {
             >
               <div className="flex items-center gap-4">
                 <span className="text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  {icon}
+                  {iconMap[icon]}
                 </span>
                 <div className="text-left">
                   <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">

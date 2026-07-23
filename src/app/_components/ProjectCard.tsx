@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
 
-interface ProjectProps {
+import { useState } from "react";
+import Image from "next/image";
+
+interface ProjectCardProps {
   name: string;
   description: string;
   imageUrl: string;
@@ -8,16 +11,16 @@ interface ProjectProps {
   githubUrl?: string;
 }
 
-export default function Project({
+export default function ProjectCard({
   name,
   description,
   imageUrl,
   projectUrl,
   githubUrl,
-}: ProjectProps) {
+}: ProjectCardProps) {
   const bothLinks = projectUrl && githubUrl;
 
-  const [showOverlay, setShowOverlay] = React.useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const handleImageClick = () => {
     setShowOverlay(!showOverlay);
@@ -33,10 +36,12 @@ export default function Project({
         className="relative w-full h-32 sm:h-36 lg:h-48 overflow-hidden group cursor-pointer lg:cursor-default"
         onClick={handleImageClick}
       >
-        <img
-          className="w-full h-full object-cover transition-transform duration-300"
+        <Image
+          className="object-cover transition-transform duration-300"
           src={imageUrl}
           alt={name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
 
         <div

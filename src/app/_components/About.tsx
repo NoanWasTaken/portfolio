@@ -1,6 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { MenuBook, Timeline } from "@mui/icons-material";
 import { useState } from "react";
+import { timelineEntries } from "@/data/timeline";
 
 export default function About() {
   const [activeAboutView, setActiveAboutView] = useState<"paragraph" | "tree">(
@@ -13,7 +16,6 @@ export default function About() {
       className="min-h-screen bg-gray-50 dark:bg-zinc-900 flex items-center justify-center relative overflow-hidden"
     >
       <div className="about-elements hidden lg:block">
-        {/* Animations */}
         <div
           className="story-line"
           style={{ top: "20%", left: "10%", animationDelay: "0s" }}
@@ -82,7 +84,6 @@ export default function About() {
             ABOUT ME
           </h2>
 
-          {/* Toggle Switch */}
           <div className="flex justify-center items-center gap-4 mb-12">
             <div className="bg-white dark:bg-zinc-800 p-1.5 rounded-full shadow-lg border border-gray-100 dark:border-gray-700 flex relative">
               <div
@@ -131,7 +132,7 @@ export default function About() {
                     satisfaction with. When i started learning by myself, I
                     instantly knew I was in the right path and I wanted to base
                     a career on web development. Ever since, I have been
-                    learning and improving my skills, and I'm probably still
+                    learning and improving my skills, and I&apos;m probably still
                     doing as you read this.
                     <br />
                     I believe having a passion as a job is the best way to
@@ -145,8 +146,7 @@ export default function About() {
 
                   <div className="w-full max-w-lg border-l-4 border-blue-500/30 dark:border-blue-400/30 pl-6 py-2 italic">
                     <p className="text-xl text-gray-600 dark:text-gray-300 font-serif">
-                      "A jack of all trades is a master of none, but oftentimes
-                      better than a master of one"
+                      {`\u201CA jack of all trades is a master of none, but oftentimes better than a master of one\u201D`}
                     </p>
                     <p className="text-right text-sm font-bold mt-2 text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       — William Shakespeare
@@ -160,44 +160,13 @@ export default function About() {
                   transition={{ duration: 0.4 }}
                   className="relative max-w-3xl mx-auto py-4"
                 >
-                  {/* Central Line - Desktop only */}
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
 
-                  {/* Mobile Timeline Line */}
                   <div className="md:hidden absolute left-6 top-4 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
 
                   <div className="space-y-8">
-                    {[
-                      {
-                        year: "October 2025 - Currently",
-                        title:
-                          "Master's Degree in Full-Stack Development and Technical Leadership",
-                        place: ".decode",
-                        desc: "Making full-stack applications and learning to lead technical teams. Apprenticeship in web and mobile development at W-HA (Orange).",
-                      },
-                      {
-                        year: "July 2025",
-                        title:
-                          "Bachelor's Degree in Digital Project Management, Specialization in Web Development",
-                        place: "EEMI",
-                        desc: "Combined with a 2 year apprenticeship in web and mobile development at W-HA (Orange).",
-                      },
-                      {
-                        year: "May 2023 - Currently",
-                        title: "Apprenticeship in Web and Mobile Development",
-                        place: "W-HA (Orange)",
-                        desc: "Developed internal tools in Angular and JAVA. Also made applications in Kotlin and Flutter.",
-                      },
-                      {
-                        year: "2022",
-                        title:
-                          "General Baccalaureate (French high school diploma)",
-                        place: "Lycée Van Gogh, Ermont",
-                        desc: "With Honors (Mention Bien), Specializations in Mathematics and Computer Science (NSI)",
-                      },
-                    ].map((item, index) => (
+                    {timelineEntries.map((item, index) => (
                       <div key={index} className="w-full">
-                        {/* Desktop Layout */}
                         <motion.div
                           key={`desktop-${index}`}
                           initial={{ opacity: 0, y: 20 }}
@@ -250,7 +219,6 @@ export default function About() {
                           </div>
                         </motion.div>
 
-                        {/* Mobile Layout (Cards) */}
                         <motion.div
                           key={`mobile-${index}`}
                           initial={{ opacity: 0, x: -20 }}

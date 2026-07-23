@@ -1,37 +1,12 @@
+"use client";
+
 import { motion } from "framer-motion";
-import Project from "../templates/Project";
+import ProjectCard from "@/app/_components/ProjectCard";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
-  const projects = [
-    {
-      name: "My Portfolio",
-      description:
-        "The portfolio you're currently on, showcasing my projects and skills, built with React and Tailwind CSS.",
-      imageUrl: "/portfolio.png",
-      projectUrl: "https://noandelatouche.dev",
-      githubUrl: "https://github.com/NoanWasTaken/portfolio",
-    },
-    {
-      name: "Tabs Counter",
-      description:
-        "A small Firefox extension that counts the number of open tabs and more.",
-      imageUrl: "/tabs_counter.png",
-      projectUrl:
-        "https://addons.mozilla.org/en-US/firefox/addon/simple-tabs-counter/",
-      githubUrl: "https://github.com/NoanWasTaken/tabs-counter",
-    },
-    {
-      name: "GearForge",
-      description:
-        "Online shop with ai features and complete admin panel, stocks management and easter eggs",
-      imageUrl: "/gearfoge.png",
-      projectUrl: "https://gearforge.noandelatouche.dev",
-      githubUrl: "https://github.com/NoanWasTaken/projet_m1s1",
-    },
-  ];
-
   const [currentPage, setCurrentPage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -174,7 +149,7 @@ export default function Projects() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="w-full max-w-xs lg:w-[calc(25%-1.125rem)]"
               >
-                <Project
+                <ProjectCard
                   name={project.name}
                   description={project.description}
                   imageUrl={project.imageUrl}
