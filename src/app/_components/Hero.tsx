@@ -1,4 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Linkedin, Github } from "lucide-react";
 
 export default function Hero() {
@@ -78,9 +81,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
               Resume
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -116,11 +124,14 @@ export default function Hero() {
 
             <div className="relative z-10 w-72 h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-gray-800 via-gray-900 to-black p-1 shadow-2xl hero-image-container hero-glow-effect">
               <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center overflow-hidden">
-                <div className="w-60 h-60 lg:w-64 lg:h-64 rounded-full flex items-center justify-center relative overflow-hidden">
-                  <img
+                <div className="relative w-60 h-60 lg:w-64 lg:h-64 rounded-full overflow-hidden">
+                  <Image
                     src="/pfp.webp"
                     alt="Anime character profile"
-                    className="w-full h-full object-cover rounded-full hero-image"
+                    fill
+                    className="object-cover hero-image"
+                    priority
+                    sizes="256px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-full"></div>
                 </div>

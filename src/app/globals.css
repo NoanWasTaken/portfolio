@@ -501,12 +501,12 @@ code {
   position: absolute;
   height: 1px;
   background: rgba(16, 185, 129, 0.3);
-  animation: connection-flow 5s ease-in-out infinite;
+  animation: connection-flow 5s ease-in-out 1 forwards;
 }
 
 @keyframes connection-flow {
-  0%, 100% { transform: scaleX(0); opacity: 0; }
-  50% { transform: scaleX(1); opacity: 1; }
+  0% { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
 }
 
 .message-bubble {
@@ -515,7 +515,7 @@ code {
   height: 20px;
   border: 2px solid rgba(16, 185, 129, 0.4);
   border-radius: 50%;
-  animation: message-bounce 4s ease-in-out infinite;
+  animation: message-bounce 4s ease-in-out 1 forwards;
 }
 
 @keyframes message-bounce {
@@ -530,7 +530,7 @@ code {
   height: 6px;
   border-radius: 50%;
   background: rgba(16, 185, 129, 0.5);
-  animation: network-glow 3s ease-in-out infinite;
+  animation: network-glow 3s ease-in-out 1 forwards;
 }
 
 @keyframes network-glow {
@@ -548,10 +548,7 @@ code {
 
 .dark .network-node {
   background: rgba(52, 211, 153, 0.6);
-}
-
-.dark .network-node {
-  animation: network-glow-dark 3s ease-in-out infinite;
+  animation: network-glow-dark 3s ease-in-out 1 forwards;
 }
 
 @keyframes network-glow-dark {
