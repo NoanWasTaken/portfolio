@@ -16,6 +16,14 @@ export const projects: ProjectData[] = [
     githubUrl: "https://github.com/NoanWasTaken/portfolio",
   },
   {
+    name: "PIVOT",
+    description: "Check if your steam games can be run on a linux system",
+    imageUrl: "/pivot.png",
+    projectUrl: "https://pivot.noandelatouche.dev",
+    githubUrl: "https://github.com/NoanWasTaken/pivot",
+  },
+
+  {
     name: "Tabs Counter",
     description:
       "A small Firefox extension that counts the number of open tabs and more.",
@@ -23,6 +31,14 @@ export const projects: ProjectData[] = [
     projectUrl:
       "https://addons.mozilla.org/en-US/firefox/addon/simple-tabs-counter/",
     githubUrl: "https://github.com/NoanWasTaken/tabs-counter",
+  },
+  {
+    name: "Antifa Logo Generator",
+    description:
+      "A small web app that generates an antifa logo with custom text and images.",
+    imageUrl: "/antifalogogenerator.png",
+    projectUrl: "https://antifalogogenerator.noandelatouche.dev",
+    githubUrl: "https://github.com/NoanWasTaken/antifa_logo_generator",
   },
   {
     name: "GearForge",
